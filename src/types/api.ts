@@ -40,19 +40,30 @@ export interface MemoryMetrics {
   used_percent: number
 }
 
+export interface DiskPartition {
+  path?: string
+  mountpoint?: string
+
+  total?: number
+  used?: number
+  free?: number
+
+  total_bytes?: number
+  used_bytes?: number
+  free_bytes?: number
+
+  used_percent: number
+}
+
 export interface DiskMetrics {
   total?: number
   free?: number
   used?: number
   used_percent: number
+
   path?: string
-  partitions?: Array<{
-    path: string
-    total: number
-    free: number
-    used: number
-    used_percent: number
-  }>
+
+  partitions?: DiskPartition[]
 }
 
 export interface NetworkInterface {
